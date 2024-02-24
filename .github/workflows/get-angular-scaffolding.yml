@@ -24,9 +24,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          repository: ${{ github.event.inputs.template-repo }}
-          token: ${{ secrets.GITHUB_TOKEN }}
-
+      
       - name: Run Angular Scaffold 
         uses: ./.github/workflows/angular-scaffolding.yml@main
