@@ -20,4 +20,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Friday Templates Workflow
-        run: .github/workflows/angular_template.yml
+        uses: P4dr4/Friday-Templates/.github/workflows/angular_template.yml@main
