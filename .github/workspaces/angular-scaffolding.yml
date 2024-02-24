@@ -1,0 +1,23 @@
+name: Use Friday Templates Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      template-repo:
+        description: 'The repository containing the Friday Templates workflow'
+        required: true
+        default: 'P4dr4/Friday-Templates'
+
+jobs:
+  use-friday-templates:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Friday Templates Workflow
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.event.inputs.template-repo }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Friday Templates Workflow
+        run: .github/workflows/angular_template.yml
