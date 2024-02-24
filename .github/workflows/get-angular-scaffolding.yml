@@ -5,7 +5,7 @@ on:
     inputs:
       template-repo:
         description: 'The repository containing the Friday Templates workflow'
-        required: true
+        required: false
         default: 'P4dr4/Friday-Templates'
 
 jobs:
@@ -22,4 +22,4 @@ jobs:
 
   use-friday-angular:
     needs: [use-friday-templates]
-    uses: P4dr4/Angular-app/.github/workflows/angular-scaffolding.yml@main
+    uses: .github/workflows/angular-scaffolding.yml@main
