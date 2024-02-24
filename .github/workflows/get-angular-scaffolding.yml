@@ -2,11 +2,6 @@ name: Use Friday Templates Workflow
 
 on:
   workflow_dispatch:
-    inputs:
-      template-repo:
-        description: 'The repository containing the Friday Templates workflow'
-        required: false
-        default: 'P4dr4/Friday-Templates'
 
 jobs:
   use-friday-templates:
