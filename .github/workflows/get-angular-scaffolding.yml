@@ -11,8 +11,6 @@ on:
 jobs:
   use-friday-templates:
     runs-on: ubuntu-latest
-    needs: []
-
     steps:
       - name: Trigger Friday Templates Workflow
         uses: actions/checkout@v2
@@ -22,4 +20,13 @@ jobs:
 
   use-friday-angular:
     needs: [use-friday-templates]
-    uses: ./.github/workflows/angular-scaffolding.yml
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.event.inputs.template-repo }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Angular Scaffold 
+        uses: ./.github/workflows/angular-scaffolding.yml@main
