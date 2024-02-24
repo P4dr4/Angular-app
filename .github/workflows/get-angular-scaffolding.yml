@@ -24,8 +24,14 @@ jobs:
     needs: [use-friday-templates]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Commit and Push Changes
+        run: |
+            cd "${{ github.workspace }}/my-angular-app"  # Navigate to the directory of your Angular application
+            git add .
+            export GPG_TTY=$(tty)
+            gpg --batch --pinentry-mode loopback --passphrase-file "${{ github.workspace }}/passphrase.txt" --sign -a -s
+            git commit -m "Add Angular application"
+            git push origin master
     
       - name: Run Angular Scaffold 
         uses: ./.github/workflows/angular-scaffolding.yml@main
