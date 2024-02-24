@@ -27,7 +27,4 @@ jobs:
   
       steps:
         - name: Run Angular Scaffold 
-          with:
-            repository: ${{ github.event.inputs.template-repo }}
-            token: ${{ secrets.GITHUB_TOKEN }}
-            uses: P4dr4/Angular-app/.github/workflows/angular-scaffolding.yml@main
+          uses: P4dr4/Angular-app/.github/workflows/angular-scaffolding.yml@main
