@@ -19,12 +19,17 @@ jobs:
         with:
           repository: ${{ github.event.inputs.template-repo }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          uses: P4dr4/Friday-Templates/.github/workflows/angular_template.yml@main
-          
+
   use-friday-angular:
-      runs-on: ubuntu-latest
-      needs: [use-friday-templates]
-  
-      steps:
-        - name: Run Angular Scaffold 
-          uses: P4dr4/Angular-app/.github/workflows/angular-scaffolding.yml@main
+    runs-on: ubuntu-latest
+    needs: [use-friday-templates]
+    defaults:
+      run:
+        working-directory: ${{ github.workspace }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Angular Scaffold
+        uses: P4dr4/Angular-app/.github/workflows/angular-scaffolding.yml@main
