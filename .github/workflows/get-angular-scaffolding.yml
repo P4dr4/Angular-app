@@ -13,12 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Friday Templates Workflow
-        uses: actions/checkout@v2
-        with:
-          repository: ${{ github.event.inputs.template-repo }}
-          token: ${{ secrets.PAT }} # Use your Personal Access Token here
-          fetch-depth: 0 # To fetch all history
-          persist-credentials: false # Don't persist the fetched credentials to disk for future steps
+        uses: P4dr4/Friday-Templates/.github/workflows/angular_template.yml@main
 
   use-friday-angular:
     needs: [use-friday-templates]
