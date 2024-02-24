@@ -11,6 +11,7 @@ on:
 jobs:
   use-friday-templates:
     runs-on: ubuntu-latest
+    needs: []
 
     steps:
       - name: Trigger Friday Templates Workflow
@@ -18,6 +19,4 @@ jobs:
         with:
           repository: ${{ github.event.inputs.template-repo }}
           token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Run Friday Templates Workflow
-        uses: P4dr4/Friday-Templates/.github/workflows/angular_template.yml@main
+          uses: P4dr4/Friday-Templates/.github/workflows/angular_template.yml@main
