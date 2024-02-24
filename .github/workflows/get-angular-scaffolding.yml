@@ -27,7 +27,6 @@ jobs:
   
       steps:
         - name: Run Angular Scaffold 
-          uses: actions/checkout@v2
           with:
             repository: ${{ github.event.inputs.template-repo }}
             token: ${{ secrets.GITHUB_TOKEN }}
