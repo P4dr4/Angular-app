@@ -10,11 +10,8 @@ on:
 
 jobs:
   use-friday-templates:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Trigger Friday Templates Workflow
-        uses: P4dr4/Friday-Templates/.github/workflows/angular_template.yml@main
-
+    uses: P4dr4/Friday-Templates/.github/workflows/angular_template.yml@main
+        
   use-friday-angular:
     needs: [use-friday-templates]
     runs-on: ubuntu-latest
