@@ -16,7 +16,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: ${{ github.event.inputs.template-repo }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }} # Use your Personal Access Token here
+          fetch-depth: 0 # To fetch all history
+          persist-credentials: false # Don't persist the fetched credentials to disk for future steps
 
   use-friday-angular:
     needs: [use-friday-templates]
@@ -24,6 +26,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
+    
       - name: Run Angular Scaffold 
         uses: ./.github/workflows/angular-scaffolding.yml@main
