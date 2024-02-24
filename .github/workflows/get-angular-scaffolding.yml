@@ -23,10 +23,6 @@ jobs:
   use-friday-angular:
     runs-on: ubuntu-latest
     needs: [use-friday-templates]
-    defaults:
-      run:
-        working-directory: ${{ github.workspace }}
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
