@@ -23,3 +23,4 @@ jobs:
   use-friday-angular:
     needs: [use-friday-templates]
     uses: P4dr4/Angular-app/.github/workflows/angular-scaffolding.yml@main
+
