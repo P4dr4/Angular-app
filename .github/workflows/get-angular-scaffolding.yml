@@ -22,4 +22,4 @@ jobs:
 
   use-friday-angular:
     needs: [use-friday-templates]
-    uses: .github/workflows/angular-scaffolding.yml@main
+    uses: ./.github/workflows/angular-scaffolding.yml
